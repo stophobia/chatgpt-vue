@@ -5,13 +5,13 @@
     >
       <div class="text-2xl font-bold">ChatGPT</div>
       <div class="ml-4 text-sm text-gray-500">
-        基于 OpenAI 的 ChatGPT 自然语言模型人工智能对话
+        Chatgpt自然言語モデルOpenaiに基づく人工知能の対話
       </div>
       <div
         class="ml-auto px-3 py-2 text-sm cursor-pointer hover:bg-white rounded-md"
         @click="clickConfig()"
       >
-        设置
+      設定
       </div>
     </div>
 
@@ -37,18 +37,18 @@
 
     <div class="sticky bottom-0 w-full p-6 pb-8 bg-gray-100">
       <div class="-mt-2 mb-2 text-sm text-gray-500" v-if="isConfig">
-        请输入 API Key：
+        API Key : 
       </div>
       <div class="flex">
         <input
           class="input"
           :type="isConfig ? 'password' : 'text'"
-          :placeholder="isConfig ? 'sk-xxxxxxxxxx' : '请输入'"
+          :placeholder="isConfig ? 'sk-xxxxxxxxxx' : '入力してください。'"
           v-model="messageContent"
           @keydown.enter="isTalking || sendOrSave()"
         />
         <button class="btn" :disabled="isTalking" @click="sendOrSave()">
-          {{ isConfig ? "保存" : "发送" }}
+          {{ isConfig ? "保存" : "送信" }}
         </button>
       </div>
     </div>
@@ -74,19 +74,19 @@ const roleAlias = { user: "ME", assistant: "ChatGPT", system: "System" };
 const messageList = ref<ChatMessage[]>([
   {
     role: "system",
-    content: "你是 ChatGPT，OpenAI 训练的大型语言模型，尽可能简洁地回答。",
+    content: "あなたはChatGpt・Openaiトレーニング。できるだけシンプルな回答のための大規模な言語モデルです。",
   },
   {
     role: "assistant",
-    content: `你好，我是AI语言模型，我可以提供一些常用服务和信息，例如：
+    content: `こんにちは、私はAI言語モデルです。次のような一般的なサービスや情報を提供できます。
 
-1. 翻译：我可以把中文翻译成英文，英文翻译成中文，还有其他一些语言翻译，比如法语、日语、西班牙语等。
+1.翻訳：私は日本語を英語、英語を日本語に翻訳し、フランス語、中国語、ドイツ語などの言語に翻訳できます。
 
-2. 咨询服务：如果你有任何问题需要咨询，例如健康、法律、投资等方面，我可以尽可能为你提供帮助。
+2.協議サービス：問題がある場合は、健康、法律、投資など、相談する必要があります。可能な限りお手伝いできます。
 
-3. 闲聊：如果你感到寂寞或无聊，我们可以聊一些有趣的话题，以减轻你的压力。
+3.チャット：孤独または退屈だと感じたら、圧力を軽減するためにいくつかの興味深いトピックについて話すことができます。
 
-请告诉我你需要哪方面的帮助，我会根据你的需求给你提供相应的信息和建议。`,
+どのようなヘルプが必要なのか教えてください。あなたのニーズに応じて、対応する情報と提案を提供します。`,
   },
 ]);
 

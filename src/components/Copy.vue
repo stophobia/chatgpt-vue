@@ -14,10 +14,10 @@ const btnConfig: {
   theme: "outline",
 };
 const btnTips = {
-  copy: "复制全文",
+  copy: "全文コピー",
   loading: "",
-  success: "已复制到剪贴板！",
-  error: "复制失败！",
+  success: "クリップボードにコピー",
+  error: "コピー失敗",
 };
 const btnStatus = ref<"copy" | "loading" | "success" | "error">("copy");
 
